@@ -4,8 +4,18 @@ plugins {
 
 dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.retry:spring-retry'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
 }
 
 springBoot {
     mainClass = 'com.reliaquest.api.ApiApplication'
+}
+
+test {
+    // Show the standard output and error in the console
+    testLogging {
+        events "passed", "skipped", "failed" // Shows test results
+        showStandardStreams = true // Enables System.out and System.err output
+    }
 }
